@@ -45,7 +45,15 @@
         ]
       },
       {
-        "tab": "API reference"
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "APIs",
+            "pages": [
+              "api-reference/apis/hello"
+            ]
+          }
+        ]
       }
     ]
   },
