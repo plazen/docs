@@ -45,19 +45,7 @@
         ]
       },
       {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "apis/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": []
-          }
-        ]
+        "tab": "API reference"
       }
     ]
   },
