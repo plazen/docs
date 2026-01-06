@@ -12,14 +12,13 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "icon": "book-open-cover",
-          "href": "https://mintlify.com/docs"
-        },
-        {
-          "anchor": "Blog",
+          "anchor": "Release Notes",
           "icon": "newspaper",
-          "href": "https://mintlify.com/blog"
+          "color": {
+            "light": "#43B2AC",
+            "dark": "#43B2AC"
+          },
+          "href": "https://plazen.org/release-notes"
         }
       ]
     },
