@@ -40,7 +40,7 @@
             "icon": "computer",
             "pages": [
               "dev/introduction",
-              "essentials/navigation"
+              "dev/setup"
             ]
           }
         ]
