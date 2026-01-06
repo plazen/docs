@@ -4,8 +4,8 @@
   "name": "Plazen Documentation",
   "colors": {
     "primary": "#43B2AC",
-    "light": "#00739D",
-    "dark": "#43B2AC"
+    "light": "#43B2AC",
+    "dark": "#00739D"
   },
   "favicon": "/images/favicon.ico",
   "navigation": {
