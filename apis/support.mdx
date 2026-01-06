@@ -1,0 +1,151 @@
+---
+title: Support endpoints
+---
+
+## Tickets (session required)
+```endpoint
+method: POST
+path: /api/support/tickets
+summary: Create a support ticket
+requestBody:
+  - name: title
+    required: true
+  - name: message
+    required: false
+  - name: priority
+    required: false
+```
+Side-effects: creates ticket + initial message; best-effort email notifications.  
+**Success:** `200/201` created ticket JSON.  
+**Errors:** `401`, `400/500`.
+
+```endpoint
+method: GET
+path: /api/support/tickets
+summary: List support tickets
+```
+- Admins: all tickets.  
+- Regular users: only their tickets.  
+**Success 200:** Array with counts/labels.  
+**Errors:** `401`, `500`.
+
+## Single ticket (session required)
+```endpoint
+method: GET
+path: /api/support/tickets/:id
+summary: Get ticket with messages and labels
+pathParams:
+  - name: id
+    required: true
+```
+AuthZ: admins any; users only their own.  
+**Errors:** `401/403`, `404`, `500`.
+
+```endpoint
+method: POST
+path: /api/support/tickets/:id
+summary: Add message and/or update status
+pathParams:
+  - name: id
+    required: true
+requestBody:
+  - name: message/status fields
+    required: false
+```
+Admins may mark internal/update status; regular users cannot create internal messages.  
+**Errors:** `401/403`, `400/500`.
+
+```endpoint
+method: DELETE
+path: /api/support/tickets/:id
+summary: Delete a ticket (admin only)
+pathParams:
+  - name: id
+    required: true
+```
+AuthZ: admin only.  
+**Errors:** `401`, `500`.
+
+## Ticket labels (admin only)
+```endpoint
+method: POST
+path: /api/support/tickets/:id/labels
+summary: Attach a label to a ticket
+pathParams:
+  - name: id
+    required: true
+requestBody:
+  - name: labelId
+    required: true
+```
+**Errors:** `401`, `400`, `500`.
+
+```endpoint
+method: DELETE
+path: /api/support/tickets/:id/labels
+summary: Remove a label from a ticket
+pathParams:
+  - name: id
+    required: true
+queryParams:
+  - name: labelId
+    required: true
+```
+**Errors:** `401`, `400`, `500`.
+
+## Labels catalog (admin only)
+```endpoint
+method: GET
+path: /api/support/labels
+summary: List support labels
+```
+**Errors:** `401`.
+
+```endpoint
+method: POST
+path: /api/support/labels
+summary: Create a label
+requestBody:
+  - name: name
+    required: true
+  - name: color
+    required: true
+```
+**Errors:** `401`, `400`, `409`, `500`.
+
+```endpoint
+method: DELETE
+path: /api/support/labels
+summary: Delete a label
+queryParams:
+  - name: id
+    required: true
+```
+**Errors:** `401`, `400`, `500`.
+
+## Label-ticket relation by ticket path (admin only)
+```endpoint
+method: POST
+path: /api/support/labels/:id
+summary: Attach label to ticket (ticket id in path)
+pathParams:
+  - name: id
+    required: true
+requestBody:
+  - name: labelId
+    required: true
+```
+**Errors:** `401`, `400`.
+
+```endpoint
+method: DELETE
+path: /api/support/labels/:id
+summary: Remove label from ticket (ticket id in path)
+pathParams:
+  - name: id
+    required: true
+queryParams:
+  - name: labelId
+    required: true
+```
+**Errors:** `401`, `400`.

@@ -1,0 +1,46 @@
+---
+title: Admin endpoints
+---
+
+### Documentation entries (admin)
+```endpoint
+method: GET
+path: /api/admin/documentation
+summary: List documentation entries (admin)
+```
+**AuthZ:** `profiles.role === "ADMIN"`.  
+**Errors:** `401`, `500`.
+
+```endpoint
+method: POST
+path: /api/admin/documentation
+summary: Create documentation entry (admin)
+requestBody:
+  - name: topic
+    required: true
+  - name: text
+    required: true
+  - name: category
+    required: false
+```
+**Success 201:** Created entry.  
+**Errors:** `401`, `400`, `500`.
+
+### Admin email inbox
+```endpoint
+method: GET
+path: /api/admin/email/inbox
+summary: Fetch inbound emails via IMAP
+queryParams:
+  - name: mailbox
+    default: INBOX
+  - name: page
+    default: 1
+  - name: perPage
+    default: 20
+  - name: filterRecipients
+    default: true
+```
+Filters to `us@plazen.org` / `support@plazen.org` when `filterRecipients` is true.  
+**AuthZ:** Admin only.  
+**Errors:** `401`, `500` (e.g., IMAP misconfigured).

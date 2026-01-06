@@ -1,0 +1,41 @@
+---
+title: Public endpoints
+---
+
+### List documentation entries
+```endpoint
+method: GET
+path: /api/documentation
+summary: List all documentation entries
+```
+**Auth:** None  
+**Success 200:** JSON array of `documentation_entries` ordered by `category`.  
+**Errors:** `500 { error: "Failed to fetch documentation entries" }`.
+
+### Get documentation entry
+```endpoint
+method: GET
+path: /api/documentation/:id
+summary: Get one documentation entry
+pathParams:
+  - name: id
+    required: true
+    description: Entry ID
+```
+**Auth:** None  
+**Success 200:** JSON entry.  
+**Errors:** `400` missing id, `404` not found, `500`.
+
+### Get release note
+```endpoint
+method: GET
+path: /api/release-notes/:id
+summary: Get one release note
+pathParams:
+  - name: id
+    required: true
+    description: Release note ID
+```
+**Auth:** None  
+**Success 200:** JSON release note.  
+**Errors:** `400` missing id, `404` not found, `500`.

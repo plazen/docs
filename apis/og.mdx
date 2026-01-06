@@ -1,0 +1,23 @@
+---
+title: Open Graph image
+---
+
+### Generate OG image
+```endpoint
+method: GET
+path: /api/og
+summary: Generate OG image for documentation or release notes
+queryParams:
+  - name: type
+    required: true
+    description: "release-note | (any other value → documentation)"
+  - name: id
+    required: true
+    description: Entry ID
+  - name: theme
+    required: false
+    description: light | dark (default dark)
+```
+**Output:** 1200x630 image.  
+**Behavior:** Fetches `/api/release-notes/:id` when `type=release-note`, otherwise `/api/documentation/:id`.  
+**Errors:** `400 "Missing type or id"`, `404 "Not found"`.
