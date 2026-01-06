@@ -29,18 +29,12 @@
           {
             "group": "Self-hosting",
             "icon": "database",
-            "pages": [
-              "index",
-              "quickstart"
-            ]
+            "pages": ["index", "quickstart"]
           },
           {
             "group": "For Developers",
             "icon": "computer",
-            "pages": [
-              "dev/introduction",
-              "dev/setup"
-            ]
+            "pages": ["dev/introduction", "dev/setup"]
           }
         ]
       },
@@ -50,7 +44,11 @@
           {
             "group": "APIs",
             "pages": [
-              "api-reference/apis/hello"
+              "api-reference/apis/index",
+              "api-reference/apis/public",
+              "api-reference/apis/authenticated",
+              "api-reference/apis/og",
+              "api-reference/apis/support"
             ]
           }
         ]
@@ -76,15 +74,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
