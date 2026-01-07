@@ -65,12 +65,7 @@
         "label": "Support",
         "href": "mailto:support@plazen.org"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+    ]
   },
   "contextual": {
     "options": [
