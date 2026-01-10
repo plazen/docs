@@ -1,19 +1,34 @@
 ---
-title: Public endpoints
-description: Overview and conventions for the Plazen API
+title: "Public endpoints"
+description: "Overview and conventions for the Plazen API"
 ---
 
+### Report connectivity to the database
+
+```endpoint
+method: GET, OPTIONS (CORS)
+path: /api/health
+summary: Database connection failed
+```
+
+**Auth:** None, Cross Origin Allowed\
+**Success: **`200 { status: "ok", message: "Database connection successful" }`\
+**Errors:** `500 { error: "Failed to fetch documentation entries" }`
+
 ### List documentation entries
+
 ```endpoint
 method: GET
 path: /api/documentation
 summary: List all documentation entries
 ```
-**Auth:** None  
-**Success 200:** JSON array of `documentation_entries` ordered by `category`.  
+
+**Auth:** None\
+**Success 200:** JSON array of `documentation_entries` ordered by `category`.\
 **Errors:** `500 { error: "Failed to fetch documentation entries" }`.
 
 ### Get documentation entry
+
 ```endpoint
 method: GET
 path: /api/documentation/:id
@@ -23,11 +38,13 @@ pathParams:
     required: true
     description: Entry ID
 ```
-**Auth:** None  
-**Success 200:** JSON entry.  
+
+**Auth:** None\
+**Success 200:** JSON entry.\
 **Errors:** `400` missing id, `404` not found, `500`.
 
 ### Get release note
+
 ```endpoint
 method: GET
 path: /api/release-notes/:id
@@ -37,6 +54,7 @@ pathParams:
     required: true
     description: Release note ID
 ```
-**Auth:** None  
-**Success 200:** JSON release note.  
+
+**Auth:** None\
+**Success 200:** JSON release note.\
 **Errors:** `400` missing id, `404` not found, `500`.
