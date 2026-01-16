@@ -1,9 +1,10 @@
 ---
 title: "Public endpoints"
 description: "Overview and conventions for the Plazen API"
+icon: "person"
 ---
 
-### Report connectivity to the database
+### Report connectivity to the database (introduced in [v1.11.0](https://www.plazen.org/release-notes/6e212460-10f6-4b02-8b78-4852c7df60d5))
 
 ```endpoint
 method: GET, OPTIONS (CORS)
@@ -15,7 +16,7 @@ summary: Database connection failed
 **Success:** `200 { status: "ok", message: "Database connection successful" }`\
 **Errors:** `500 { error: "Failed to fetch documentation entries" }`
 
-### List documentation entries
+### List documentation entries (will be removed in v2.0.0)
 
 ```endpoint
 method: GET
@@ -27,7 +28,7 @@ summary: List all documentation entries
 **Success 200:** JSON array of `documentation_entries` ordered by `category`.\
 **Errors:** `500 { error: "Failed to fetch documentation entries" }`.
 
-### Get documentation entry
+### Get documentation entry (will be removed in v2.0.0)
 
 ```endpoint
 method: GET
