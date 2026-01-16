@@ -29,12 +29,19 @@
           {
             "group": "Self-hosting",
             "icon": "database",
-            "pages": ["index", "quickstart"]
+            "pages": [
+              "index",
+              "quickstart"
+            ]
           },
           {
             "group": "For Developers",
             "icon": "computer",
-            "pages": ["dev/introduction", "dev/setup"]
+            "pages": [
+              "dev/introduction",
+              "dev/setup",
+              "dev/full-setup"
+            ]
           }
         ]
       },
@@ -48,7 +55,8 @@
               "api-reference/apis/public",
               "api-reference/apis/authenticated",
               "api-reference/apis/og",
-              "api-reference/apis/support"
+              "api-reference/apis/support",
+              "api-reference/apis/development-endpoints"
             ]
           }
         ]

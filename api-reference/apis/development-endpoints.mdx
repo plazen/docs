@@ -1,0 +1,36 @@
+---
+title: "Development endpoints"
+icon: "code"
+description: "Overview of development endpoint for the Plazen API"
+---
+
+### List developer settings (introduced in v1.13.0)
+
+```endpoint
+method: GET
+path: /api/dev/settings
+summary: Returns current dev mode settings (admin status, subscription status)
+```
+
+**Auth:** None\
+**Success:** JSON array where `isAdmin : Boolean, isSubscribed : Boolean`\
+**Error:** `403 { error: "Dev mode is not enabled" }`
+
+### Change developer settings (introduced in v1.13.0)
+
+```endpoint
+method: PATCH
+path: /api/dev/settings
+summary: Updates dev mode settings (admin status, subscription status)
+requestBody:
+  - name: isAdmin
+	type: Boolean
+    required: true
+  - name: isSubscribed
+	type: Boolean
+    required: true
+```
+
+**Auth:** None\
+**Success:** JSON array where `isAdmin : Boolean, isSubscribed : Boolean`\
+**Errors:** `403 { error: "Dev mode is not enabled" }, 500 { error: "Failed to update settings" }`

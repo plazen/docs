@@ -1,9 +1,11 @@
 ---
-title: Open Graph image
-description: Overview and conventions for the Plazen API
+title: "Open Graph image"
+description: "Overview and conventions for the Plazen API"
+icon: "image"
 ---
 
 ### Generate OG image
+
 ```endpoint
 method: GET
 path: /api/og
@@ -19,6 +21,7 @@ queryParams:
     required: false
     description: light | dark (default dark)
 ```
-**Output:** 1200x630 image.  
-**Behavior:** Fetches `/api/release-notes/:id` when `type=release-note`, otherwise `/api/documentation/:id`.  
+
+**Output:** 1200x630 image.\
+**Behavior:** Fetches `/api/release-notes/:id` when `type=release-note`, otherwise `/api/documentation/:id`.\
 **Errors:** `400 "Missing type or id"`, `404 "Not found"`.

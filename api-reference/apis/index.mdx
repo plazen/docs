@@ -1,25 +1,31 @@
 ---
-title: Plazen API
-description: Overview and conventions for the Plazen API
+title: "Plazen API"
+description: "Overview and conventions for the Plazen API"
+icon: "circle-info"
 ---
 
 ## Authentication
+
 - Most endpoints require a **Supabase session cookie** (validated server-side).
 - Admin-only endpoints additionally require `profiles.role === "ADMIN"` in the database.
 
 ## Error format
+
 ```json
 { "error": "message" }
 ```
 
 ## Content types
+
 - Requests: `application/json` unless otherwise noted.
 - Responses: `application/json` unless otherwise noted (OG route returns an image).
 
 ## Groups
-- Public: `/api/documentation`, `/api/release-notes`
-- Authenticated: `/api/notifications`, `/api/tasks`, `/api/routine-tasks`
-- Support: `/api/support/*`
-- Admin: `/api/admin/*`
+
+- [Public](/api-reference/apis/public): `/api/documentation`, `/api/release-notes`
+- [Authenticated](/api-reference/apis/authenticated): `/api/notifications`, `/api/tasks`, `/api/routine-tasks`
+- [Support](/api-reference/apis/support): `/api/support/*`
+- [Admin](/api-reference/apis/admin): `/api/admin/*`
 - OAuth: `/api/google/oauth/start`
-- Media: `/api/og`
+- [Development](/api-reference/apis/development-endpoints): `/api/dev/settings`
+- [Media](/api-reference/apis/og): `/api/og`

@@ -1,19 +1,23 @@
 ---
-title: Authenticated endpoints
-description: Overview and conventions for the Plazen API
+title: "Authenticated endpoints"
+description: "Overview and conventions for the Plazen API"
+icon: "user"
 ---
 
 ### List notifications
+
 ```endpoint
 method: GET
 path: /api/notifications
 summary: List active notifications
 ```
-**Auth:** Supabase session required.  
-**Success 200:** JSON array where `show = true`, ordered by `created_at desc`.  
+
+**Auth:** Supabase session required.\
+**Success 200:** JSON array where `show = true`, ordered by `created_at desc`.\
 **Errors:** `401`, `500 { error: "Failed to fetch notifications" }`.
 
 ### Tasks collection
+
 ```endpoint
 method: GET
 path: /api/tasks
@@ -24,9 +28,10 @@ queryParams:
   - name: timezoneOffset
     description: Minutes offset from UTC (optional; adjusts serialization)
 ```
+
 - Generates routine tasks for the date when applicable.
-- **Auth:** Session required.  
-- **Success 200:** JSON of tasks + external events.  
+- **Auth:** Session required.
+- **Success 200:** JSON of tasks + external events.
 - **Errors:** `401`, `500`.
 
 ```endpoint
@@ -41,7 +46,8 @@ requestBody:
     required: false
     description: Time info; non-time-sensitive tasks may be auto-slotted
 ```
-**Success:** Created task JSON.  
+
+**Success:** Created task JSON.\
 **Errors:** `401`, `400/500`.
 
 ```endpoint
@@ -58,7 +64,8 @@ requestBody:
   - name: start/end/other scheduling
     description: Reschedule fields
 ```
-**Success:** Updated task JSON.  
+
+**Success:** Updated task JSON.\
 **Errors:** `401`, `400/500`.
 
 ```endpoint
@@ -70,10 +77,12 @@ requestBody:
     required: true
     description: Task ID (owned by caller)
 ```
-**Success:** Deletion confirmation JSON.  
+
+**Success:** Deletion confirmation JSON.\
 **Errors:** `401`, `400/500`.
 
 ### Routine task template
+
 ```endpoint
 method: PATCH
 path: /api/routine-tasks/:id
@@ -88,8 +97,9 @@ requestBody:
   - name: duration_minutes
   - name: is_active
 ```
-**Auth:** Session required.  
-**Success 200:** Updated routine task (title decrypted in response).  
+
+**Auth:** Session required.\
+**Success 200:** Updated routine task (title decrypted in response).\
 **Errors:** `401`, `500`.
 
 ```endpoint
@@ -100,6 +110,7 @@ pathParams:
   - name: id
     required: true
 ```
-**Auth:** Session required.  
-**Success 200:** Deletion success.  
+
+**Auth:** Session required.\
+**Success 200:** Deletion success.\
 **Errors:** `401`, `500`.
