@@ -16,6 +16,38 @@ summary: Database connection failed
 **Success:** `200 { status: "ok", message: "Database connection successful" }`\
 **Errors:** `500 { error: "Failed to fetch documentation entries" }`
 
+### Get a public profile (introduced in v1.14.0)
+
+```endpoint
+method: GET
+path: /api/profile/[username]
+summary: Fetch public profile data for a user by username
+pathParams:
+  - name: username
+    required: true
+    description: Public username
+```
+
+**Auth:** None\
+**Success 200:** JSON profile: username, stats, avatar, bio, badges\
+**Errors:** `400 { error: "Username is required" }` missing id, `404 { error: "Profile not found" }` not found, `500 { error: "Failed to fetch profile" }`.
+
+### Get release note
+
+```endpoint
+method: GET
+path: /api/release-notes/:id
+summary: Get one release note
+pathParams:
+  - name: id
+    required: true
+    description: Release note ID
+```
+
+**Auth:** None\
+**Success 200:** JSON release note.\
+**Errors:** `400` missing id, `404` not found, `500`.
+
 ### List documentation entries (will be removed in v2.0.0)
 
 ```endpoint
@@ -42,20 +74,4 @@ pathParams:
 
 **Auth:** None\
 **Success 200:** JSON entry.\
-**Errors:** `400` missing id, `404` not found, `500`.
-
-### Get release note
-
-```endpoint
-method: GET
-path: /api/release-notes/:id
-summary: Get one release note
-pathParams:
-  - name: id
-    required: true
-    description: Release note ID
-```
-
-**Auth:** None\
-**Success 200:** JSON release note.\
 **Errors:** `400` missing id, `404` not found, `500`.

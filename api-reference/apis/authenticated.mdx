@@ -114,3 +114,15 @@ pathParams:
 **Auth:** Session required.\
 **Success 200:** Deletion success.\
 **Errors:** `401`, `500`.
+
+### Username check
+
+```endpoint
+method: GET
+path: /api/profile/username/check?username=<username>
+summary: Check if a username is available and valid
+```
+
+**Auth:** Supabase session required.\
+**Success 200:** `{ available: boolean, valid: boolean, message?: string }`\
+**Errors:** `401 { error: "Unauthorized" }`, `500  { error: "Failed to check username availability" }`.
